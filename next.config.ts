@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
   },
+  // originals only, no resizing or re-encoding
+  images: {
+    unoptimized: true,
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* one spacing unit = one design pixel, so w-625 really is 625px in the mockup */
+  --spacing: 0.0625rem;
+
+  /* the mockup is one fixed 1440 composition. any narrower than this and it turns into fine print, so the page reflows instead */
+  --breakpoint-lg: 72rem;
+  /* tl = a tablet on its long side: wide enough for the hero photo to give some room back to the words */
+  --breakpoint-tl: 60rem;
+
+  --color-home: #ffb82b;
+  --color-arts: #ff4762;
+  --color-academics: #368af7;
+  --color-projects: #8fb300;
+  /* same hues, dark enough to read: sky blue and lime are for headings, not for paragraphs */
+  --color-academics-ink: #1b63cc;
+  --color-projects-ink: #566c00;
+  --color-cream: #fff7bc;
+  --color-blush: #ffb0bc;
+  --color-slot: #d9d9d9;
+
+  --font-sans: var(--font-funnel), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-gld), var(--font-funnel), sans-serif;
+
+  --radius-card: calc(var(--spacing) * 10);
+  --radius-photo: calc(var(--spacing) * 39);
+  --radius-hero: calc(var(--spacing) * 60);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* on wide screens the whole mockup scales with the window. three limits, smallest wins:
+   the window width, the window height (so the hero button never drops below the fold), and 150% */
+@media (min-width: 72rem) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --spacing: min(100cqw / 1440, max(0.05rem, 100svh / 760), 0.09375rem);
+  }
+}
+
+/* glide to anchors, unless the visitor asked for less motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  container-type: inline-size;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-sans);
+  /* where a justified line may break a word: long words only, and never a two-letter stump */
+  hyphenate-limit-chars: 8 3 4;
+  /* look, don't take */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+img,
+svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+/* keyboard focus in the page's own colour instead of the browser's blue */
+:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* ---- page-to-page continuity ---- */
+::view-transition {
+  pointer-events: none;
+}
+
+/* no whole-page crossfade: only the hero and the content below it are allowed to move */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* the nav never moves: it is the thing you hold on to while the page changes */
+::view-transition-group(site-nav) {
+  animation: none;
+  z-index: 10;
+}
+::view-transition-old(site-nav) {
+  display: none;
+}
+::view-transition-new(site-nav) {
+  animation: none;
+}
+
+/* the hero block is the same object on every page, only its colour and title change */
+::view-transition-group(.hero) {
+  animation-duration: 450ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* old content leaves quickly, new content takes its time */
+::view-transition-old(.page-exit) {
+  animation: 150ms ease-in both page-fade reverse;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    320ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both page-fade,
+    480ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both page-rise;
+}
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes page-rise {
+  from {
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* clicks fall through pictures, so there is no "save image as" to offer */
+img {
+  pointer-events: none;
+}
+
+/* below the mockup's width every size is fluid: phone at the low end, tablet at the top.
+   --ink is the readable cut of the page colour, on the pages that set one */
+@utility type-body {
+  font-size: clamp(1rem, 0.9rem + 0.42vw, 1.125rem);
+  line-height: 1.45;
+  color: var(--ink, inherit);
+  @variant lg {
+    font-size: calc(var(--spacing) * 20);
+    line-height: 1.25;
+  }
+}
+
+@utility type-label {
+  font-size: clamp(1rem, 0.9rem + 0.42vw, 1.125rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink, inherit);
+  @variant lg {
+    font-size: calc(var(--spacing) * 20);
+    line-height: 1.2;
+  }
+}
+
+@utility type-sub {
+  font-size: clamp(1.375rem, 1.05rem + 1.3vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  @variant lg {
+    font-size: calc(var(--spacing) * 36);
+  }
+}
+
+@utility type-display-24 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1.2;
+  @variant lg {
+    font-size: calc(var(--spacing) * 24);
+  }
+}
+
+@utility type-display-36 {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 0.99rem + 1.06vw, 1.75rem);
+  line-height: 1.2;
+  @variant lg {
+    font-size: calc(var(--spacing) * 36);
+  }
+}
+
+@utility type-display-40 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2rem);
+  line-height: 1.2;
+  @variant lg {
+    font-size: calc(var(--spacing) * 40);
+  }
+}
+
+@utility type-display-48 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.95rem + 1.2vw, 2.75rem);
+  line-height: 1.2;
+  @variant lg {
+    font-size: calc(var(--spacing) * 48);
+  }
+}
+
+@utility type-display-64 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1rem + 4.6vw, 3rem);
+  line-height: 1.2;
+  @variant lg {
+    font-size: calc(var(--spacing) * 64);
+  }
 }
