@@ -7,38 +7,6 @@ export const trangChu = {
     }
   ],
   nutKeuGoi: "Introduct my portfolio",
-  viSao: {
-    tieuDe: {
-      truoc: "Why is Mos",
-      chuVe: "a",
-      sau: "ic"
-    },
-    doan: [
-      {
-        chu: "For me, mosaic art is not just about cutting and piecing together ceramics, but a lesson in patience, precision, and transformation. From small pieces, each person can create something uniquely belonging to themselves, which is both decorative and practical for everyday use. I was drawn to mosaic ceramics because it also reflects what I am pursuing in living and learning: taking small experiences and weaving them together into a meaningful journey."
-      }
-    ],
-    anh: [
-      {
-        src: "/images/home/mosaic-01.png",
-        rong: 1502,
-        cao: 1216,
-        moTa: "Ceramic mosaic work in progress"
-      },
-      {
-        src: "/images/home/mosaic-02.png",
-        rong: 1502,
-        cao: 1460,
-        moTa: "Cutting ceramic tiles for a mosaic"
-      },
-      {
-        src: "/images/home/mosaic-03.png",
-        rong: 1502,
-        cao: 1460,
-        moTa: "Finished ceramic mosaic pieces"
-      }
-    ]
-  },
   cot: [
     {
       trang: "academics" as Trang,

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AnhGoc from "@/components/common/AnhGoc";
 import DoanVan from "@/components/common/DoanVan";
 import DuongKe from "@/components/common/DuongKe";
 import HinhVe from "@/components/common/HinhVe";
@@ -7,10 +6,7 @@ import KhoiMoDau from "@/components/common/KhoiMoDau";
 import NoiDungTrang from "@/components/common/NoiDungTrang";
 import NutKeuGoi from "@/components/common/NutKeuGoi";
 import HienManh from "@/components/effects/HienManh";
-import LatManh from "@/components/effects/LatManh";
-import { chuA } from "@/data/artwork/home-mosaic-a";
 import { chanDung } from "@/data/artwork/home-portrait";
-import { vetGhep } from "@/data/artwork/home-strip-overlay";
 import { tieuDeTrangChu } from "@/data/artwork/home-title";
 import { chuAcademics } from "@/data/artwork/wordmark-academics";
 import { chuArt } from "@/data/artwork/wordmark-art";
@@ -26,7 +22,7 @@ const chuCot: Partial<Record<Trang, { hinh: typeof chuArt; co: string }>> = {
 };
 
 export default function TrangChu() {
-  const { loiChao, nutKeuGoi, viSao, cot } = trangChu;
+  const { loiChao, nutKeuGoi, cot } = trangChu;
   return (
     <>
       <KhoiMoDau trang="home">
@@ -54,35 +50,8 @@ export default function TrangChu() {
       </KhoiMoDau>
 
       <NoiDungTrang className="lg:pl-71 lg:pr-78">
-        <section className="pt-40 md:pt-56 lg:pt-54">
-          <h2
-            aria-label={`${viSao.tieuDe.truoc}${viSao.tieuDe.chuVe}${viSao.tieuDe.sau}`}
-            className="type-display-64 flex items-start justify-center text-academics"
-          >
-            <span aria-hidden>{viSao.tieuDe.truoc}</span>
-            {/* the "a" is a mosaic shard, because of course it is */}
-            <HinhVe duLieu={chuA} className="mx-2 -mt-[0.06em] h-[1em] w-[0.67em] shrink-0" />
-            <span aria-hidden>{viSao.tieuDe.sau}</span>
-          </h2>
-          <DuongKe trang="academics" className="mx-auto w-452 max-w-full" />
-          <DoanVan dong={viSao.doan} className="mx-auto mt-24 lg:mt-30" />
-          <div className="relative mt-24 md:mt-32 lg:ml-2 lg:mt-34">
-            {/* phones: one big photo over two small ones, so it is a composition and not a queue */}
-            <div className="grid grid-cols-2 gap-12 sm:grid-cols-3 sm:gap-16 lg:grid-cols-[410fr_414fr_414fr] lg:gap-26">
-              {viSao.anh.map((anh, i) => (
-                <LatManh key={anh.src} thuTu={i} className={i === 0 ? "col-span-2 sm:col-span-1" : ""}>
-                  <AnhGoc anh={anh} className="aspect-[414/377] h-auto w-full lg:aspect-auto lg:h-377" />
-                </LatManh>
-              ))}
-            </div>
-            <HinhVe
-              duLieu={vetGhep}
-              className="pointer-events-none absolute left-5 top-3 hidden h-368 w-1276 lg:block"
-            />
-          </div>
-        </section>
-
-        <DuongKe trang="home" className="mt-40 md:mt-56 lg:mr-2 lg:mt-59" />
+        {/* the mockup dropped the mosaic story on 2026-10-16, so the first rule sits right under the hero */}
+        <DuongKe trang="home" className="mt-40 md:mt-56 lg:mr-2 lg:mt-51" />
 
         <section className="grid gap-40 pt-32 md:gap-48 md:pt-48 lg:grid-cols-[412fr_414fr_412fr] lg:gap-26 lg:pt-27">
           {cot.map((muc) => {

@@ -1,3 +1,11 @@
+import type { AnhDuLieu } from "./types";
+
+// what the scores open up into on hover
+const bangDiemAp: AnhDuLieu = { src: "/images/academics/ap-scores.png", rong: 1148, cao: 1144, moTa: "AP score report" };
+// orphan blob in the .fig (no node uses it any more), copied by hand: b7395a85…
+const bangDiemSat: AnhDuLieu = { src: "/images/academics/sat.png", rong: 307, cao: 146, moTa: "SAT score report" };
+const bangDiemIelts: AnhDuLieu = { src: "/images/academics/ielts.png", rong: 1202, cao: 1694, moTa: "IELTS test report form" };
+
 export const hocThuat = {
   nutKeuGoi: "View my art",
   hocVan: {
@@ -14,12 +22,14 @@ export const hocThuat = {
           x: 328,
           nhan: "IELTS",
           giaTri: "7.5",
+          xem: bangDiemIelts,
           ghiChu: "Overall Band Score"
         },
         {
           x: 586,
           nhan: "SAT",
           giaTri: "1570",
+          xem: bangDiemSat,
           ghiChu: "December 2025"
         }
       ],
@@ -28,12 +38,14 @@ export const hocThuat = {
           x: 0,
           nhan: "AP Calculus BC",
           giaTri: "5",
+          xem: bangDiemAp,
           ghiChu: "May 2025"
         },
         {
           x: 221,
-          nhan: "AP Calculus BC",
+          nhan: "AP Microeconomics",
           giaTri: "5",
+          xem: bangDiemAp,
           ghiChu: "May 2025"
         },
         {
@@ -67,11 +79,10 @@ export const hocThuat = {
         {
           anh: [
             {
-              src: "/images/academics/wico-2026.jpg",
-              rong: 1126,
-              cao: 800,
-              moTa: "World Invention Creativity Olympics 2026 gold award",
-              giaLap: true
+              src: "/images/academics/wico-2026.png",
+              rong: 1960,
+              cao: 2814,
+              moTa: "World Invention Creativity Olympics 2026 gold award certificate"
             }
           ],
           ten: [
@@ -103,14 +114,18 @@ export const hocThuat = {
         {
           anh: [
             {
-              src: "/images/academics/wyef-2025.jpg",
-              rong: 1126,
-              cao: 800,
-              moTa: "World Youth Economics Forum 2025 special awards",
-              giaLap: true
+              src: "/images/academics/wyef-2025-01.png",
+              rong: 1994,
+              cao: 2814,
+              moTa: "World Youth Economics Forum 2025 certificate 1"
+            },
+            {
+              src: "/images/academics/wyef-2025-02.png",
+              rong: 1994,
+              cao: 2814,
+              moTa: "World Youth Economics Forum 2025 certificate 2"
             }
-          ],
-          ten: [
+          ],          ten: [
             {
               chu: "World Youth Economics Forum (WYEF) 2025:"
             },

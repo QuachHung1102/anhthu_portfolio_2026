@@ -18,3 +18,5 @@ export type ManhGhep = {
 };
 
 export type HinhVeDuLieu = { rong: number; cao: number; manh: ManhGhep[] };
+
+export type VideoDuLieu = { id: string; ten: string };

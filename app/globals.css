@@ -31,9 +31,23 @@
 /* on wide screens the whole mockup scales with the window. three limits, smallest wins:
    the window width, the window height (so the hero button never drops below the fold), and 150% */
 @media (min-width: 72rem) {
-  :root {
+  /* worked out on body's children, where 100cqw is the page width. registered as a length, so it is frozen
+     to px right there and inherits as px: a nested @container further down cannot rescale it */
+  body > * {
     --spacing: min(100cqw / 1440, max(0.05rem, 100svh / 760), 0.09375rem);
   }
+}
+@property --spacing {
+  syntax: "<length>";
+  inherits: true;
+  /* must be computationally independent, so px: rem would get the whole rule thrown out */
+  initial-value: 1px;
+}
+
+/* the page stays put behind an open lightbox. the gutter keeps the scrollbar's width, so nothing rescales */
+html:has(dialog[open]) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
 }
 
 /* glide to anchors, unless the visitor asked for less motion */
@@ -205,5 +219,52 @@ img {
   line-height: 1.2;
   @variant lg {
     font-size: calc(var(--spacing) * 64);
+  }
+}
+
+/* "there is something under here": a slow, quiet pulse that stops once you are on it */
+@keyframes goi-y {
+  50% {
+    opacity: 0.5;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .goi-y {
+    animation: goi-y 2.4s ease-in-out infinite;
+  }
+  :hover > .goi-y,
+  :focus-within > .goi-y,
+  :focus-visible > .goi-y {
+    animation: none;
+  }
+}
+
+/* ---- extracurricular carousel ---- */
+
+/* the photo strip under each activity: one endless slow drift, halts while you look */
+@keyframes cuon-anh {
+  to {
+    translate: -50% 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cuon-anh {
+    animation: cuon-anh var(--cuon-lau, 40s) linear infinite;
+  }
+  .cuon-anh:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* a new slide drifts in from the side it came from (--tu), a toggled view just fades */
+@keyframes truot-vao {
+  from {
+    opacity: 0;
+    translate: var(--tu, 0) 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .truot-vao {
+    animation: truot-vao 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }

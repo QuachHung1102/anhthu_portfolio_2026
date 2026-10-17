@@ -1,25 +1,25 @@
-import AnhGoc from "@/components/common/AnhGoc";
 import DoanVan from "@/components/common/DoanVan";
+import VideoYoutube from "@/components/common/VideoYoutube";
 import LatManh from "@/components/effects/LatManh";
-import type { AnhDuLieu, DongVan } from "@/data/types";
+import type { DongVan, VideoDuLieu } from "@/data/types";
 
 type Props = {
-  tietMuc: { anh: AnhDuLieu; moTa: DongVan[]; dam?: boolean }[];
+  // dam: the first line (the piece) is bold, the note under it is not
+  tietMuc: { video: VideoDuLieu; moTa: DongVan[]; dam?: boolean }[];
   className: string;
-  coAnh: string;
 };
 
-// performances side by side: a still (video later) with its programme note
-export default function TietMuc({ tietMuc, className, coAnh }: Props) {
+// performances side by side: the video with its programme note
+export default function TietMuc({ tietMuc, className }: Props) {
   return (
     <div className={`grid gap-32 md:grid-cols-2 ${className}`}>
       {tietMuc.map((muc, i) => (
-        <figure key={muc.anh.src}>
-          <LatManh thuTu={i}>
-            <AnhGoc anh={muc.anh} className={`h-auto w-full bg-slot ${coAnh}`} />
+        <figure key={muc.video.id}>
+          <LatManh thuTu={i % 2}>
+            <VideoYoutube video={muc.video} />
           </LatManh>
           <figcaption className="mt-12 lg:mt-7">
-            <DoanVan dong={muc.moTa} className={muc.dam ? "font-bold" : ""} />
+            <DoanVan dong={muc.moTa} className={muc.dam ? "[&>p:first-child]:font-bold" : ""} />
           </figcaption>
         </figure>
       ))}

@@ -17,7 +17,6 @@ export default function TrangDanTranh() {
         <TietMuc
           tietMuc={tietMuc}
           className="mt-24 lg:mt-20 lg:grid-cols-2 lg:gap-19"
-          coAnh="aspect-[638/435]"
         />
         <DuongKe trang="arts" className="mt-40 lg:mt-76" />
       </section>

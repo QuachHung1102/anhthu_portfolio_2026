@@ -237,84 +237,77 @@ export const ngheThuat = {
   },
   piano: {
     tieuDe: "Piano",
+    // plain text with three linked bits; each link peeks at its certificate on hover
     doan: [
+      "I started playing the piano when I was 5. Over the years, I was able to explore music more deeply and express myself through performance. In 2017, I traveled to Singapore to take part in the ",
       {
-        chu: "I started playing the piano when I was 5. Over the years, I was able to explore music more deeply and express myself through performance. In 2017, I traveled to Singapore to take part in the Asia Pacific Arts Festival (APAF), where I received a Gold Prize. I also have had opportunities to perform at the ABRSM High Scorers’ Concert in 2018 and completed the ABRSM Grade 6 Piano examination with Distinction in 2023, representing one of my proudest achievements in my years of learning music."
-      }
+        chu: "Asia Pacific Arts Festival (APAF)",
+        lienKet: "https://drive.google.com/file/d/1FTXg97toT7xkPO2Sk9GiFpwtGT0aC4CD/view?usp=drive_link",
+        anh: { src: "/images/arts/piano/apaf-2017.jpg", rong: 2560, cao: 1821, moTa: "Asia Pacific Arts Festival 2017 gold certificate" },
+      },
+      ", where I received a Gold Prize. I also have had opportunities to perform at the ",
+      {
+        chu: "ABRSM High Scorers’ Concert",
+        lienKet: "https://drive.google.com/file/d/11b_8Dp-YJoDP-2Pc1IoBZl_m189TblTt/view?usp=drive_link",
+        anh: { src: "/images/arts/piano/high-scorers-concert-2018.jpg", rong: 1786, cao: 2526, moTa: "ABRSM High Scorers’ Concert 2018 certificate" },
+      },
+      " in 2018 and completed the ",
+      {
+        chu: "ABRSM Grade 6",
+        lienKet: "https://drive.google.com/file/d/1SCUAxCNxeIzMalu1LbC6jM33NDq1DQBF/view?usp=drive_link",
+        anh: { src: "/images/arts/piano/abrsm-grade-6.jpg", rong: 1850, cao: 2560, moTa: "ABRSM Grade 6 piano certificate" },
+      },
+      " Piano examination with Distinction in 2023, representing one of my proudest achievements in my years of learning music.",
     ],
     tietMuc: [
       {
-        anh: {
-          src: "/images/arts/piano/performance-01.jpg",
-          rong: 1242,
-          cao: 858,
-          moTa: "Piano performance: Stephen Heller, Prelude in C-sharp Minor",
-          giaLap: true
-        },
+        video: { id: "lddC4G76vnM", ten: "Prelude in C-sharp Minor, Stephen Heller" },
         moTa: [
-          {
-            chu: "Stephen Heller – Prelude in C-sharp Minor"
-          },
-          {
-            chu: "One of the pieces I performed for the ABRSM Grade 6 Piano examination, which I completed with Distinction."
-          }
+          { chu: "Stephen Heller – Prelude in C-sharp Minor" },
+          { chu: "One of the pieces I performed for the ABRSM Grade 6 Piano examination, which I completed with Distinction." },
         ],
-        dam: true
+        dam: true,
       },
       {
-        anh: {
-          src: "/images/arts/piano/performance-02.png",
-          rong: 1374,
-          cao: 784,
-          moTa: "Piano performance: Beethoven, Sonatina in G Major"
-        },
+        video: { id: "J40vXTsRFtQ", ten: "Sonatina in G Major, Beethoven" },
         moTa: [
-          {
-            chu: "Ludwig van Beethoven – Sonatina in G Major"
-          },
-          {
-            chu: "Performed at the Asia Pacific Arts Festival (APAF) Singapore 2018, where I received a Gold Prize."
-          }
-        ]
-      }
-    ]
+          { chu: "Ludwig van Beethoven – Sonatina in G Major" },
+          { chu: "Performed at the Asia Pacific Arts Festival (APAF) Singapore 2018, where I received a Gold Prize." },
+        ],
+        dam: true,
+      },
+      {
+        // in a comment on the mockup, no caption yet: the video's own title stands in
+        video: { id: "gt_nmjvHKhU", ten: "Indigo Moon, Elissa Milne" },
+        moTa: [{ chu: "Elissa Milne – Indigo Moon" }],
+        dam: true,
+      },
+    ],
   },
   danTranh: {
     tieuDe: "Vietnamese Zither",
     doan: [
       {
-        chu: "Đàn tranh is a traditional Vietnamese zither that I have had the opportunity to learn and explore alongside my experience with Western music."
-      }
+        chu: "Đàn tranh is a traditional Vietnamese zither that I have had the opportunity to learn and explore alongside my experience with Western music.",
+      },
     ],
     tietMuc: [
       {
-        anh: {
-          src: "/images/arts/vietnamese-zither/performance-01.jpg",
-          rong: 1276,
-          cao: 870,
-          moTa: "Zither performance: Trống Cơm",
-          giaLap: true
-        },
+        video: { id: "NRXMuPaaI88", ten: "Trống Cơm, Vietnamese zither cover" },
         moTa: [
           {
-            chu: "In this video, I perform “Trống Cơm” & “Một vòng Việt Nam”, a familiar Vietnamese folk song. Learning this piece introduced me to the distinctive rhythms and sounds of traditional Vietnamese music."
-          }
-        ]
+            chu: "In this video, I perform “Trống Cơm” & “Một vòng Việt Nam”, a familiar Vietnamese folk song. Learning this piece introduced me to the distinctive rhythms and sounds of traditional Vietnamese music.",
+          },
+        ],
       },
       {
-        anh: {
-          src: "/images/arts/vietnamese-zither/performance-02.jpg",
-          rong: 1276,
-          cao: 870,
-          moTa: "Zither performance: Một Vòng Việt Nam",
-          giaLap: true
-        },
+        video: { id: "7UU3PFdXe0o", ten: "Một Vòng Việt Nam, Vietnamese zither cover" },
         moTa: [
           {
-            chu: "I also perform “Một Vòng Việt Nam” a song that celebrates the beauty, the landscapes, and the people of Vietnam. Through learning and performing these pieces, I have found a meaningful way to connect with Vietnamese musical traditions and appreciate the cultural stories behind them."
-          }
-        ]
-      }
-    ]
-  }
+            chu: "I also perform “Một Vòng Việt Nam” a song that celebrates the beauty, the landscapes, and the people of Vietnam. Through learning and performing these pieces, I have found a meaningful way to connect with Vietnamese musical traditions and appreciate the cultural stories behind them.",
+          },
+        ],
+      },
+    ],
+  },
 };

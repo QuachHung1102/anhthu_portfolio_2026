@@ -1,3 +1,0 @@
-import type { HinhVeDuLieu } from "../types";
-
-export const chuA: HinhVeDuLieu = {"rong":43,"cao":64,"manh":[{"d":"M3 27.5L0.5 60.5L14 49L14 30.5L19 13L9 8.5L3 27.5Z","mau":"#FFB82B"},{"d":"M42 49L39.5 17.5L27.5 5.5L23.5 8.5L30.5 25L32.5 49L42 49Z","mau":"#FFB82B"},{"d":"M29.5 33.5L17.5 38L15 44.5L30.5 42.5L29.5 33.5Z","mau":"#FFB82B"},{"d":"M42 55.5L32.5 51.5L30.5 62L42 61.5L42 55.5Z","mau":"#FFB82B"},{"d":"M16 62L14 51.5L0.5 61.5L0.5 63.5L16 62Z","mau":"#FFB82B"},{"d":"M33.5 51.5L35 49.5L42 50L42.5 55L33.5 51.5Z","mau":"#FFB82B"},{"d":"M25 6.5L18.5 11.5L10 7.5L25.5 0L25 6.5Z","mau":"#FFB82B"}]};

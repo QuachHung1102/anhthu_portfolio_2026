@@ -17,6 +17,8 @@ export default function HienDan({ children, className }: Props) {
       duration: 0.7,
       ease: EM,
       stagger: 0.09,
+      // a leftover transform would trap any hover popup inside the item, under the next row
+      clearProps: "transform,opacity,visibility",
       scrollTrigger: khiCuonToi(hop),
     });
   });

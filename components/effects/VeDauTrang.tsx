@@ -24,6 +24,9 @@ export default function VeDauTrang() {
         ? Math.min(window.scrollY, noiDung.getBoundingClientRect().top + window.scrollY)
         : 0;
     window.scrollTo({ top: dich, behavior: "instant" });
+    // the arts hero now re-renders with its title, so Next's own scroll handler runs after us in the same
+    // commit and sees the hero off screen: it would yank the page to the top. say it once more before paint
+    if (dich) requestAnimationFrame(() => window.scrollTo({ top: dich, behavior: "instant" }));
   }, []);
   // renders nothing you can see: it is only here so the effect can find the <main> it sits in
   return <i ref={moc} hidden />;
