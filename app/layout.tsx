@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Funnel_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import NhapChuot from "@/components/effects/NhapChuot";
+import { site } from "@/data/site";
 import "./globals.css";
 
 const chuThan = Funnel_Sans({
@@ -18,8 +19,8 @@ const chuTieuDe = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Anh Thư folio",
-    template: "%s | Anh Thư folio",
+    default: "ANH THU LE | PORTFOLIO",
+    template: "%s | ANH THU LE | PORTFOLIO",
   },
   description:
     "Portfolio of Le Anh Thu: academics, ceramic mosaic art, music and community projects.",
@@ -35,6 +36,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         {children}
+        {/* small and quiet, the way the Doc asked. the address is the one thing on the site you may copy */}
+        <footer className="px-20 pb-32 text-center text-sm text-black/70 select-text">
+          Contact:{" "}
+          <a href={`mailto:${site.email}`} className="underline-offset-2 hover:underline">
+            {site.email}
+          </a>{" "}
+          · © 2026 Anh Thu Le
+        </footer>
         <NhapChuot />
       </body>
     </html>

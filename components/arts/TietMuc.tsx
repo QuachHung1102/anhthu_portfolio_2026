@@ -4,8 +4,7 @@ import LatManh from "@/components/effects/LatManh";
 import type { DongVan, VideoDuLieu } from "@/data/types";
 
 type Props = {
-  // dam: the first line (the piece) is bold, the note under it is not
-  tietMuc: { video: VideoDuLieu; moTa: DongVan[]; dam?: boolean }[];
+  tietMuc: { video: VideoDuLieu; moTa: DongVan[] }[];
   className: string;
 };
 
@@ -19,7 +18,7 @@ export default function TietMuc({ tietMuc, className }: Props) {
             <VideoYoutube video={muc.video} />
           </LatManh>
           <figcaption className="mt-12 lg:mt-7">
-            <DoanVan dong={muc.moTa} className={muc.dam ? "[&>p:first-child]:font-bold" : ""} />
+            <DoanVan dong={muc.moTa} />
           </figcaption>
         </figure>
       ))}

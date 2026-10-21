@@ -62,8 +62,6 @@ body {
   background: #fff;
   color: #000;
   font-family: var(--font-sans);
-  /* where a justified line may break a word: long words only, and never a two-letter stump */
-  hyphenate-limit-chars: 8 3 4;
   /* look, don't take */
   -webkit-user-select: none;
   user-select: none;

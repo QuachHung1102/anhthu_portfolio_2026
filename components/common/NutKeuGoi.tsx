@@ -11,10 +11,10 @@ import HinhVe from "./HinhVe";
 type Props = { trang: Trang; nhan: string };
 
 const kieu: Record<Trang, { nen: string; chu: string; manh: string; rong: string; vien: boolean }> = {
-  home: { nen: "bg-arts", chu: "text-cream", manh: "text-blush", rong: "lg:w-503", vien: true },
-  arts: { nen: "bg-cream", chu: "text-arts", manh: "text-home", rong: "lg:w-315", vien: true },
-  academics: { nen: "bg-cream", chu: "text-academics", manh: "text-academics", rong: "lg:w-315", vien: false },
-  projects: { nen: "bg-cream", chu: "text-projects", manh: "text-projects", rong: "lg:w-315", vien: true },
+  home: { nen: "bg-arts", chu: "text-cream", manh: "text-blush", rong: "lg:min-w-503", vien: true },
+  arts: { nen: "bg-cream", chu: "text-arts", manh: "text-home", rong: "lg:min-w-315", vien: true },
+  academics: { nen: "bg-cream", chu: "text-academics", manh: "text-academics", rong: "lg:min-w-315", vien: false },
+  projects: { nen: "bg-cream", chu: "text-projects", manh: "text-projects", rong: "lg:min-w-315", vien: true },
 };
 
 // Next keeps visited pages in the DOM, hidden, so "#content" can name a page you are not on.
@@ -39,7 +39,7 @@ export default function NutKeuGoi({ trang, nhan }: Props) {
             className="h-46 w-40 transition-transform duration-300 group-hover:translate-y-6 lg:h-60 lg:w-52"
           />
         </span>
-        <span className={`relative flex min-h-64 min-w-0 items-center rounded-card py-6 pl-44 pr-20 lg:h-83 lg:py-0 lg:pl-53 lg:pr-0 ${k.nen} ${k.rong}`}>
+        <span className={`relative flex min-h-64 min-w-0 items-center rounded-card py-6 pl-44 pr-20 lg:h-83 lg:py-0 lg:pl-53 lg:pr-40 ${k.nen} ${k.rong}`}>
           <HinhVe duLieu={manhGoc} className={`absolute left-4 top-4 h-38 w-41 lg:left-6 lg:top-5 lg:h-50 lg:w-54 ${k.manh}`} />
           {trang === "home" && (
             <HinhVe duLieu={manhCuoi} className="absolute bottom-2 right-3 h-38 w-57 text-blush lg:h-50 lg:w-75" />

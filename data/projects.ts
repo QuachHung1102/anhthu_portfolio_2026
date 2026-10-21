@@ -10,30 +10,46 @@ const anhNho = (thuMuc: string, ten: string, kichThuoc: [number, number][]): Anh
   }));
 
 export const duAn = {
-  nutKeuGoi: "View my art",
+  // the Doc pasted the arts blurb here (copy slip); the home page's projects blurb fits the page
+  gioiThieu: [
+    {
+      chu: "A collection of my projects, leadership roles, community initiatives, and professional experiences. Together, they show how I work with others, apply what I learn to solve real-world problems, and strive to make a positive impact on communities."
+    }
+  ],
+  nutKeuGoi: "Explore my projects",
+  anhBia: { src: "/images/home/projects.jpg", rong: 1657, cao: 2488, moTa: "Portrait of Anh Thư" },
   phatTrien: {
-    tieuDe: "PROFESSIONAL DEVELOPMENT",
+    tieuDe: "RESEARCH & INITIATIVES",
     muc: [
       {
-        ten: "Unveiling financial inclusion dynamics: Fintech's resonance in Vietnam",
-        lienKet: "https://ijeber.com/uploads2026/ijeber_06_465.pdf",
+        ten: "The Impact of Fintech and Digital Financial Literacy on Financial Inclusion: Evidence from Vietnam",
         moTa: [
-          { chu: "Co-Author" },
+          { chu: "**Research Summary:** [View Summary](/files/fintech-research-summary.pdf)" },
+          { chu: "**Full Research Paper:** [Read Full Paper](https://ijeber.com/uploads2026/ijeber_06_465.pdf)" },
+          { chu: "*Second Author & Student Researcher*" },
           {
-            chu: "Published in International Journal of Education, Business and Economics Research (IJEBER), Vol. 6, Issue 5.",
+            chu: "*Published in the International Journal of Education, Business and Economics Research (IJEBER), Vol. 6, Issue 5, 2026, pp. 58–74.*",
+            gach: 1,
+          },
+          {
+            chu: "*Analyzed 340 survey responses using Stata and multiple regression to examine the relationships between digital financial literacy, Fintech adoption, and financial inclusion in Vietnam.*",
             gach: 1,
           },
         ],
       },
       {
         ten: "Attracting Foreign Direct Investment into High-Tech Industries in Hanoi in the Context of Hoa Lac High-Tech Park Development: Current Status, Opportunities, and Policy Implications",
-        lienKet: "https://drive.google.com/file/d/1KroATUPUnlHM79qCCuOBpejqyE17h3Xc/view?usp=sharing",
         moTa: [
-          { chu: "Researcher, Team Leader" },
-          { chu: "Achieved Gold Award in World Invention Creativity Olympics (WICO) 2026.", gach: 1 },
+          { chu: "*Student Researcher*" },
+          { chu: "Gold Award, World Invention Creativity Olympics (WICO) 2026, Seoul", gach: 1 },
+          {
+            chu: "Collaborated with teammates to research high-tech FDI in Hanoi using 17 sources and comparing four Asian tech hubs; developed six policy recommendations.",
+            gach: 1,
+          },
         ],
       },
       {
+        video: { id: "dtDW4A3qiB4", ten: "Budget Buddy 2.0 app demo" },
         anh: [
           {
             src: "/images/projects/cs50-sql.png",
@@ -48,30 +64,36 @@ export const duAn = {
             moTa: "CS50 Introduction to Programming with Python certificate",
           },
         ],
-        ten: "BudgetBuddy",
-        lienKet: "http://budget-buddy.io.vn",
+        ten: "Budget Buddy 2.0 – Bilingual AI-Assisted Personal Finance Web App",
         moTa: [
-          { chu: "Developer, Owner" },
+          { chu: "**App Demo Video:** [Watch on YouTube](https://www.youtube.com/watch?v=dtDW4A3qiB4)" },
+          { chu: "**Project Summary (PDF):** [View Project Summary](/files/budget-buddy-summary.pdf)" },
+          { chu: "*Founder, Developer & User Researcher*" },
           {
-            chu: "A personal finance tracker website that enables users to track income and expenses, categorize transactions, and monitor spending patterns.",
+            chu: "Built and deployed a bilingual personal finance web app. Surveyed 76 users to guide the development of transaction tracking, budget alerts, spending visualizations, and an AI Coach. Beta-tested the app with 25 users.",
             gach: 1,
           },
+          { chu: "Independently learned and applied Python and SQL through Harvard's CS50P and CS50 SQL courses.", gach: 1 },
         ],
       },
     ],
   },
   thucTap: {
     tieuDe: "INTERNSHIP EXPERIENCE",
-    anh: { src: "/images/projects/batik.png", rong: 1200, cao: 848, moTa: "BATIK International internship certificate" },
-    ten: "BATIK International",
+    // the Vietnamese original first, then the notarized English copy; they slide
+    anh: [
+      { src: "/images/projects/batik.png", rong: 1200, cao: 848, moTa: "BATIK International internship certificate, Vietnamese original" },
+      { src: "/images/projects/batik-en.jpg", rong: 3509, cao: 2481, moTa: "BATIK International internship certificate, notarized English translation" },
+    ],
+    ten: "Association BATIK International (Vietnam Office)",
     moTa: [
-      { chu: "Intern" },
+      { chu: "*High School Intern | July 2026*" },
       {
-        chu: "Developed a marketing campaign proposal aimed at raising high school students’ awareness of online scams and digital safety.",
+        chu: "Developed a marketing campaign proposal to raise awareness of online scams and digital safety, aimed at reaching 300+ high school students.",
         gach: 1,
       },
       {
-        chu: "Led a team in collecting and analyzing data on high school students’ awareness and understanding of gender equality across several high schools.",
+        chu: "Led a team of interns in collecting and analyzing survey data on students’ awareness and understanding of gender equality across several high schools.",
         gach: 1,
       },
     ],
@@ -81,22 +103,22 @@ export const duAn = {
     ten: "U.S. Travel Series – Charlotte Le",
     lienKet: "https://youtube.com/playlist?list=PLW7UjHY7I56pCCQ_fKYu9M55blFkinmD3&si=16mAKXpLllugvPtj",
     moTa: [
-      { chu: "Creator, Content Researcher & Video Editor 2026" },
+      { chu: "Creator, Content Researcher & Video Editor | June 2025– June 2026" },
       {
-        chu: "Flew solo to the U.S. at age 16; visited landmarks and university campuses in Washington, D.C., Boston, and New York City",
+        chu: "Flew solo to the U.S. at the age of 16 and filmed landmarks and university campuses in Washington, D.C., Boston, and New York City",
         gach: 1,
       },
       {
-        chu: "Researched, scripted, and edited a 14-episode YouTube series (16,000+ views) introducing these destinations to Vietnamese viewers. Videos feature Vietnamese narration with English subtitles.",
+        chu: "Researched, scripted, and edited a 14-episode YouTube series (16,000+ views) introducing these destinations to Vietnamese viewers, featuring Vietnamese narration with English subtitles.",
         gach: 1,
       },
     ],
-    // the first four episodes of the playlist
+    // the four episodes the Doc picked
     video: [
-      { id: "zHknH3M8ya8", ten: "U.S. Travel Series, episode 1" },
-      { id: "ebxmxIGfewo", ten: "U.S. Travel Series, episode 2" },
-      { id: "t6oRubz4T_M", ten: "U.S. Travel Series, episode 3" },
-      { id: "jVeB9yfb4mQ", ten: "U.S. Travel Series, episode 4" },
+      { id: "zHknH3M8ya8", ten: "My First Solo Trip to the U.S." },
+      { id: "t6oRubz4T_M", ten: "US Capitol Tour, Washington D.C." },
+      { id: "rG4uQZlI3eE", ten: "Downtown Boston" },
+      { id: "YPZtYPLqLbY", ten: "New York City: One World Trade Center, 9/11 Memorial, Times Square" },
     ],
   },
   ngoaiKhoa: {
@@ -104,12 +126,14 @@ export const duAn = {
     hoatDong: [
       {
         ten: "EconFarmers",
+        lienKet: "https://www.facebook.com/econfarmers",
         vaiTro: "Co-Founder & Project Leader",
         anh: {
-          src: "/images/projects/econfarmers.png",
-          rong: 1910,
-          cao: 1332,
-          moTa: "EconFarmers team at a green tourism trade fair",
+          // the Doc asked for the group photo in white shirts here
+          src: "/images/projects/activities/econfarmers/05.jpg",
+          rong: 2048,
+          cao: 2048,
+          moTa: "EconFarmers team in white shirts at the Ban Ten volunteer camp",
         },
         anhNho: anhNho("econfarmers", "EconFarmers", [
           [3750, 1969], [2560, 1920], [4032, 2268], [2048, 2048], [2048, 2048], [2048, 1588], [6000, 4000],

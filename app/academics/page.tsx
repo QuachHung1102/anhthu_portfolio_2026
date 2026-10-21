@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
+import AnhMoDau from "@/components/common/AnhMoDau";
 import DoanVan from "@/components/common/DoanVan";
 import DuongKe from "@/components/common/DuongKe";
 import HinhVe from "@/components/common/HinhVe";
@@ -42,16 +43,20 @@ function NoiDungDiem({ diem }: { diem: Diem }) {
 }
 
 export default function TrangHocThuat() {
-  const { nutKeuGoi, hocVan, giaiThuong } = hocThuat;
+  const { gioiThieu, nutKeuGoi, anhBia, hocVan, giaiThuong } = hocThuat;
   return (
     <>
       <KhoiMoDau trang="academics">
-        <h1 data-intro="tiles" className="mt-40 md:col-span-full md:mt-72 lg:absolute lg:left-72 lg:top-404 lg:mt-0 lg:w-966">
+        <h1 data-intro="tiles" className="mt-40 md:col-span-6 md:row-start-2 md:mt-32 md:self-end tl:col-span-7 lg:absolute lg:left-71 lg:top-236 lg:mt-0 lg:w-620">
           <HinhVe duLieu={tieuDeHocThuat} moTa="Academics" className="h-auto w-full" />
         </h1>
-        <div data-intro="cta" className="mt-24 md:col-span-full md:mt-32 lg:absolute lg:left-71 lg:top-632 lg:mt-0">
+        <div data-intro="text" className="mt-16 md:col-span-6 md:row-start-3 tl:col-span-7 lg:absolute lg:left-71 lg:top-380 lg:mt-0 lg:w-600">
+          <DoanVan dong={gioiThieu} className="text-cream" />
+        </div>
+        <div data-intro="cta" className="relative z-10 mt-24 md:col-span-6 md:row-start-4 md:self-start tl:col-span-7 lg:absolute lg:left-71 lg:top-632 lg:mt-0">
           <NutKeuGoi trang="academics" nhan={nutKeuGoi} />
         </div>
+        <AnhMoDau anh={anhBia} doc={0.4} className="md:row-span-3 md:row-start-2" />
       </KhoiMoDau>
 
       <NoiDungTrang className="text-academics [--ink:var(--color-academics-ink)] lg:pl-118 lg:pr-124">
@@ -99,7 +104,7 @@ export default function TrangHocThuat() {
               <div className="grid gap-32 py-28 md:grid-cols-2 md:gap-x-40 md:py-36 lg:pb-52 lg:pt-32">
                 {hang.map((giai, thuTu) => (
                   // subgrid: certificates share a bottom edge, captions share a top edge, however many lines they run to
-                  <figure key={giai.anh[0].src} className="row-span-2 grid grid-rows-subgrid gap-y-16 lg:gap-y-26">
+                  <figure key={giai.anh[0].src} className="row-span-3 grid grid-rows-subgrid gap-y-16 lg:gap-y-26">
                     <LatManh thuTu={thuTu} className="w-fit self-end">
                       <XemAnhLon
                         anh={giai.anh}
@@ -109,8 +114,16 @@ export default function TrangHocThuat() {
                     </LatManh>
                     <figcaption>
                       {/* room for three lines everywhere, so every row comes out the same height */}
-                      <DoanVan dong={giai.ten} canDeu={false} className="min-h-[3lh] font-bold lg:w-486" />
+                      <DoanVan dong={giai.ten} className="min-h-[3lh] lg:w-540" />
                     </figcaption>
+                    {/* proof she was there: 1-2 photos from the contest (ABRSM has none) */}
+                    {"anhThi" in giai ? (
+                      <LatManh thuTu={thuTu}>
+                        <XemAnhLon anh={giai.anhThi} className="grid grid-cols-2 gap-8" anhClassName="aspect-[3/2] h-auto w-full" />
+                      </LatManh>
+                    ) : (
+                      <div />
+                    )}
                   </figure>
                 ))}
               </div>

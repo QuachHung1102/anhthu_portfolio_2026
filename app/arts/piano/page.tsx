@@ -13,7 +13,7 @@ export default function TrangPiano() {
     <KhungNgheThuat>
       <section className="pt-40 lg:pl-4 lg:pt-53">
         <TieuDeNgheThuat>{tieuDe}</TieuDeNgheThuat>
-        <p className="type-body mt-20 max-w-[62ch] text-pretty lg:mt-21 lg:max-w-none lg:text-justify lg:hyphens-auto">
+        <p className="type-body mt-20 max-w-[62ch] text-pretty lg:mt-21 lg:max-w-none">
           {doan.map((manh) =>
             typeof manh === "string" ? (
               manh

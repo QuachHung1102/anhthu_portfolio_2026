@@ -117,30 +117,39 @@ export default function ChuoiHoatDong({ hoatDong }: { hoatDong: HoatDong[] }) {
           </div>
 
           <div className="flex flex-col text-projects lg:pt-27">
-            <h3 className="type-display-48">{hd.ten}</h3>
-            {chiTiet ? (
-              <div className="type-body mt-12 lg:mt-26 lg:w-525">
-                <p className="font-bold">Process:</p>
-                <ul className="list-disc pl-27">
-                  {hd.quaTrinh.map((dong) => (
-                    <li key={dong}>{dong}</li>
-                  ))}
-                </ul>
-                <p className="mt-8 font-bold">Achievements:</p>
-                <ul className="list-disc pl-27">
-                  {hd.thanhTich.map((dong) => (
-                    <li key={dong}>{dong}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : (
-              <div className="type-body mt-12 lg:mt-4 lg:w-525">
-                <p className="font-bold">Overview</p>
-                <ul className="list-disc pl-27">
-                  <li>{hd.tongQuan}</li>
-                </ul>
-              </div>
-            )}
+            {/* overview face: name and overview sit in the middle of the column (Doc, 2026-10-21) */}
+            <div className={chiTiet ? "" : "lg:my-auto"}>
+              <h3 className="type-display-48">
+                {"lienKet" in hd ? (
+                  <a href={hd.lienKet} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
+                    {hd.ten}
+                  </a>
+                ) : (
+                  hd.ten
+                )}
+              </h3>
+              {chiTiet ? (
+                <div className="type-body mt-12 lg:mt-26 lg:w-525">
+                  <p className="font-bold">Process:</p>
+                  <ul className="list-disc pl-27">
+                    {hd.quaTrinh.map((dong) => (
+                      <li key={dong}>{dong}</li>
+                    ))}
+                  </ul>
+                  <p className="mt-8 font-bold">Achievements:</p>
+                  <ul className="list-disc pl-27">
+                    {hd.thanhTich.map((dong) => (
+                      <li key={dong}>{dong}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div className="type-body mt-12 lg:mt-4 lg:w-525">
+                  <p className="font-bold">Overview</p>
+                  <p>{hd.tongQuan}</p>
+                </div>
+              )}
+            </div>
             <div className="mt-24 flex pt-0 lg:mt-auto lg:pt-24">
               {chiTiet ? (
                 <button type="button" className={`${nut} lg:ml-14`} aria-expanded onClick={() => lat(false)}>

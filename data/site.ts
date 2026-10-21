@@ -1,7 +1,8 @@
 import type { Trang } from "./types";
 
 export const site = {
-  ten: "Anh Thư folio",
+  ten: "Anh Thu’s Portfolio",
+  email: "thula.rainbow1010@gmail.com",
   dieuHuong: [
     {
       trang: "home" as Trang,

@@ -2,10 +2,16 @@
 
 import { Children, useRef, useState, type ReactNode } from "react";
 
-type Props = { children: ReactNode; nhan: string };
+type Props = { children: ReactNode; nhan: string; mau?: "arts" | "projects" };
+
+// spelled out so Tailwind sees every class
+const CHAM = {
+  arts: { vien: "border-arts", nen: "bg-arts" },
+  projects: { vien: "border-projects", nen: "bg-projects" },
+};
 
 // swipeable slides on native scroll-snap. the dots only report where you are, and jump on click
-export default function BangTruot({ children, nhan }: Props) {
+export default function BangTruot({ children, nhan, mau = "arts" }: Props) {
   const ray = useRef<HTMLDivElement>(null);
   const [dangXem, datDangXem] = useState(0);
   const trang = Children.toArray(children);
@@ -44,7 +50,7 @@ export default function BangTruot({ children, nhan }: Props) {
             className="grid size-44 place-items-center lg:-m-10"
           >
             {/* small dot, finger-sized button around it. on wide screens the buttons overlap so the dots sit as close as the mockup has them */}
-            <span className={`size-15 rounded-full border-2 border-arts transition-colors ${i === dangXem ? "bg-arts" : ""}`} />
+            <span className={`size-15 rounded-full border-2 transition-colors ${CHAM[mau].vien} ${i === dangXem ? CHAM[mau].nen : ""}`} />
           </button>
         ))}
       </div>
