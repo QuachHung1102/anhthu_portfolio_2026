@@ -75,9 +75,11 @@ export default function TrangHocThuat() {
                     className="lg:absolute lg:left-(--x) lg:top-40"
                   >
                     {diem.xem ? (
-                      // the score report shows up under it, so this one gets the pulse
-                      <XemTruoc anh={diem.xem} canh="trai" tuFocus className="block outline-offset-8">
-                        <NoiDungDiem diem={diem} />
+                      // the paper peeks out on hover, so this one gets the pulse. click opens the full set
+                      <XemTruoc anh={diem.xem[0]} canh="trai" className="block">
+                        <XemAnhLon anh={diem.xem}>
+                          <NoiDungDiem diem={diem} />
+                        </XemAnhLon>
                       </XemTruoc>
                     ) : (
                       <NoiDungDiem diem={diem} />

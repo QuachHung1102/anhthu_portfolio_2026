@@ -5,6 +5,16 @@ const bangDiemAp: AnhDuLieu = { src: "/images/academics/ap-scores.png", rong: 11
 // orphan blob in the .fig (no node uses it any more), copied by hand: b7395a85…
 const bangDiemSat: AnhDuLieu = { src: "/images/academics/sat.png", rong: 307, cao: 146, moTa: "SAT score report" };
 const bangDiemIelts: AnhDuLieu = { src: "/images/academics/ielts.png", rong: 1202, cao: 1694, moTa: "IELTS test report form" };
+// the transcript PDF, one page per school year
+const hocBa: AnhDuLieu[] = [
+  { src: "/images/academics/gpa-01.jpg", rong: 1400, cao: 1949, moTa: "School transcript, grade 9" },
+  { src: "/images/academics/gpa-02.jpg", rong: 1400, cao: 2048, moTa: "School transcript, grade 10" },
+  { src: "/images/academics/gpa-03.jpg", rong: 1400, cao: 2025, moTa: "School transcript, grade 11" }
+];
+const giayKhenHoa: AnhDuLieu[] = [
+  { src: "/images/academics/hsgtp-chemistry-01.jpg", rong: 2560, cao: 1831, moTa: "Hanoi Chemistry Excellent Student certificate, Vietnamese original" },
+  { src: "/images/academics/hsgtp-chemistry-02.jpg", rong: 1755, cao: 1240, moTa: "Hanoi Chemistry Excellent Student certificate, English translation" }
+];
 
 export const hocThuat = {
   // the Doc pasted the arts blurb here (copy slip); the home page's academics blurb fits the page
@@ -23,20 +33,21 @@ export const hocThuat = {
           x: 0,
           nhan: "GPA Grade 9-10-11:",
           giaTri: "9.5-9.5-9.7",
+          xem: hocBa,
           ghiChu: "Academic years 2023-2026"
         },
         {
           x: 328,
           nhan: "IELTS",
           giaTri: "7.5",
-          xem: bangDiemIelts,
+          xem: [bangDiemIelts],
           ghiChu: "Overall Band Score"
         },
         {
           x: 586,
           nhan: "SAT",
           giaTri: "1570",
-          xem: bangDiemSat,
+          xem: [bangDiemSat],
           ghiChu: "December 2025"
         }
       ],
@@ -45,14 +56,14 @@ export const hocThuat = {
           x: 0,
           nhan: "AP Calculus BC",
           giaTri: "5",
-          xem: bangDiemAp,
+          xem: [bangDiemAp],
           ghiChu: "May 2025"
         },
         {
           x: 221,
           nhan: "AP Microeconomics",
           giaTri: "5",
-          xem: bangDiemAp,
+          xem: [bangDiemAp],
           ghiChu: "May 2025"
         },
         {
@@ -68,6 +79,7 @@ export const hocThuat = {
           x: 0,
           nhan: "Hanoi Chemistry Excellent Student Competition, City Level",
           giaTri: "Second Prize",
+          xem: giayKhenHoa,
           ghiChu: "Hanoi Department of Education and Training, March 2024"
         }
       ]

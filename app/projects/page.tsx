@@ -9,6 +9,7 @@ import KhoiMoDau from "@/components/common/KhoiMoDau";
 import NoiDungTrang from "@/components/common/NoiDungTrang";
 import NutKeuGoi from "@/components/common/NutKeuGoi";
 import VideoYoutube from "@/components/common/VideoYoutube";
+import XemAnhLon from "@/components/common/XemAnhLon";
 import ChuTach from "@/components/effects/ChuTach";
 import LatManh from "@/components/effects/LatManh";
 import ChuoiHoatDong from "@/components/projects/ChuoiHoatDong";
@@ -60,13 +61,9 @@ export default function TrangDuAn() {
                     <LatManh>
                       <VideoYoutube video={muc.video} />
                     </LatManh>
-                    <div className="mt-8 flex gap-1">
-                      {muc.anh.map((anh, i) => (
-                        <LatManh key={anh.src} thuTu={i} className="w-0 flex-1">
-                          <AnhGoc anh={anh} className="aspect-[359/254] h-auto w-full" />
-                        </LatManh>
-                      ))}
-                    </div>
+                    <LatManh className="mt-8">
+                      <XemAnhLon anh={muc.anh} className="grid grid-cols-2 gap-1" anhClassName="aspect-[359/254] h-auto w-full" />
+                    </LatManh>
                   </div>
                   <div>
                     <TenDuAn ten={muc.ten} />

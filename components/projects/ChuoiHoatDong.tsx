@@ -119,15 +119,13 @@ export default function ChuoiHoatDong({ hoatDong }: { hoatDong: HoatDong[] }) {
           <div className="flex flex-col text-projects lg:pt-27">
             {/* overview face: name and overview sit in the middle of the column (Doc, 2026-10-21) */}
             <div className={chiTiet ? "" : "lg:my-auto"}>
-              <h3 className="type-display-48">
-                {"lienKet" in hd ? (
-                  <a href={hd.lienKet} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
-                    {hd.ten}
-                  </a>
-                ) : (
-                  hd.ten
-                )}
-              </h3>
+              <h3 className="type-display-48">{hd.ten}</h3>
+              {/* spelled out under the name: a link hidden in the title went unnoticed */}
+              {hd.lienKet && (
+                <a href={hd.lienKet} target="_blank" rel="noreferrer" className="type-body -my-11 inline-block py-11 underline underline-offset-2 hover:no-underline">
+                  {hd.lienKet.replace(/^https?:\/\/(www\.)?/, "")} ↗
+                </a>
+              )}
               {chiTiet ? (
                 <div className="type-body mt-12 lg:mt-26 lg:w-525">
                   <p className="font-bold">Process:</p>

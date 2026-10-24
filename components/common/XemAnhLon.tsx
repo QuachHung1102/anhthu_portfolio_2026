@@ -1,11 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { AnhDuLieu } from "@/data/types";
 import AnhGoc from "./AnhGoc";
 
-type Props = { anh: AnhDuLieu[]; className?: string; anhClassName?: string };
+type Props = {
+  anh: AnhDuLieu[];
+  className?: string;
+  anhClassName?: string;
+  // given: one button wrapping this opens the first picture, instead of a thumbnail per picture
+  children?: ReactNode;
+};
 
 const nutTron = "grid size-44 place-items-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/30 lg:size-56";
 
@@ -18,7 +24,7 @@ function MuiTen({ trai }: { trai?: boolean }) {
 }
 
 // click a picture to see it full size. the pictures of one group page through, lightbox style
-export default function XemAnhLon({ anh, className = "", anhClassName = "" }: Props) {
+export default function XemAnhLon({ anh, className = "", anhClassName = "", children }: Props) {
   const [so, setSo] = useState<number | null>(null);
   const diemCham = useRef<number | null>(null);
   const nhieu = anh.length > 1;
@@ -26,7 +32,11 @@ export default function XemAnhLon({ anh, className = "", anhClassName = "" }: Pr
 
   return (
     <div className={className}>
-      {anh.map((a, i) => (
+      {children ? (
+        <button type="button" aria-haspopup="dialog" className="block cursor-zoom-in text-left outline-offset-8" onClick={() => setSo(0)}>
+          {children}
+        </button>
+      ) : anh.map((a, i) => (
         <button
           key={a.src}
           type="button"
