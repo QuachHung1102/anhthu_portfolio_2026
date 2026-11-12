@@ -3,6 +3,7 @@
 import { useRef, useState, type CSSProperties } from "react";
 import AnhGoc from "@/components/common/AnhGoc";
 import DuongKe from "@/components/common/DuongKe";
+import { HopPhongTo } from "@/components/common/XemAnhLon";
 import LatManh from "@/components/effects/LatManh";
 import type { HoatDong } from "@/data/projects";
 import type { AnhDuLieu } from "@/data/types";
@@ -25,17 +26,20 @@ function MuiTen({ trai, dai }: { trai?: boolean; dai?: boolean }) {
   );
 }
 
-type DaiAnhProps = { anh: AnhDuLieu[]; className?: string; nguoc?: boolean };
+// anh = the photos in this strip, nhom = the whole set the viewer pages through, batDau = where the strip starts in it
+type DaiAnhProps = { anh: AnhDuLieu[]; nhom: AnhDuLieu[]; batDau?: number; className?: string; nguoc?: boolean };
 
 // photos drifting past in a strip. the list is laid twice and each tile carries the gap on its right,
 // so sliding by exactly half lands on the copy and the loop has no seam.
 // how many show at once comes from --so, the gap from --khe, both set by the caller
-function DaiAnh({ anh, className = "", nguoc }: DaiAnhProps) {
+function DaiAnh({ anh, nhom, batDau = 0, className = "", nguoc }: DaiAnhProps) {
+  const [mo, datMo] = useState<number | null>(null);
   let ds = anh;
   while (ds.length < 4) ds = [...ds, ...anh]; // a short list still has to fill the strip
   const kieu = { "--cuon-lau": `${ds.length * 5}s`, animationDirection: nguoc ? "reverse" : undefined } as CSSProperties;
   return (
     <div className={`@container overflow-hidden motion-reduce:overflow-x-auto ${className}`}>
+      {mo !== null && <HopPhongTo anh={nhom} so={mo} datSo={datMo} />}
       <ul className="cuon-anh flex w-max" style={kieu}>
         {[...ds, ...ds].map((a, i) => {
           const banSao = i >= anh.length;
@@ -45,7 +49,17 @@ function DaiAnh({ anh, className = "", nguoc }: DaiAnhProps) {
               aria-hidden={banSao || undefined}
               className={`w-[calc((100cqw+var(--khe))/var(--so))] shrink-0 pr-(--khe) ${banSao ? "motion-reduce:hidden" : ""}`}
             >
-              <AnhGoc anh={a} className="aspect-[371/257] h-auto w-full rounded-[calc(var(--spacing)*13)]" />
+              {/* the copies are hidden from screen readers, so they stay out of the tab order too */}
+              <button
+                type="button"
+                aria-haspopup="dialog"
+                aria-label={`View full size: ${a.moTa}`}
+                tabIndex={banSao ? -1 : undefined}
+                className="block w-full cursor-zoom-in rounded-[calc(var(--spacing)*13)]"
+                onClick={() => datMo(batDau + (i % anh.length))}
+              >
+                <AnhGoc anh={a} className="aspect-[371/257] h-auto w-full rounded-[calc(var(--spacing)*13)]" />
+              </button>
             </li>
           );
         })}
@@ -110,8 +124,8 @@ export default function ChuoiHoatDong({ hoatDong }: { hoatDong: HoatDong[] }) {
             </LatManh>
             {chiTiet && (
               <div className="mt-8 grid gap-8 [--khe:calc(var(--spacing)*8)] [--so:3] lg:mt-4 lg:gap-4">
-                <DaiAnh anh={hang1} />
-                <DaiAnh anh={hang2} nguoc />
+                <DaiAnh anh={hang1} nhom={hd.anhNho} />
+                <DaiAnh anh={hang2} nhom={hd.anhNho} batDau={hd.anhNho.length - hang2.length} nguoc />
               </div>
             )}
           </div>
@@ -166,6 +180,7 @@ export default function ChuoiHoatDong({ hoatDong }: { hoatDong: HoatDong[] }) {
           {!chiTiet && (
             <DaiAnh
               anh={hd.anhNho}
+              nhom={hd.anhNho}
               className="[--khe:calc(var(--spacing)*12)] [--so:2] md:col-span-2 md:[--so:3] lg:[--khe:calc(var(--spacing)*17)]"
             />
           )}

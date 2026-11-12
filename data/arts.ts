@@ -340,6 +340,14 @@ export const ngheThuat = {
         ],
       },
     ],
+    // five photos under the videos, in file order
+    anh: [
+      { src: "/images/arts/piano/photo-01.jpg", rong: 768, cao: 1024, moTa: "Anh Thư at the piano, photo 1" },
+      { src: "/images/arts/piano/photo-02.jpg", rong: 2103, cao: 1577, moTa: "Anh Thư at the piano, photo 2" },
+      { src: "/images/arts/piano/photo-03.jpg", rong: 1451, cao: 1088, moTa: "Anh Thư at the piano, photo 3" },
+      { src: "/images/arts/piano/photo-04.jpg", rong: 2006, cao: 1505, moTa: "Anh Thư at the piano, photo 4" },
+      { src: "/images/arts/piano/photo-05.jpg", rong: 2016, cao: 1512, moTa: "Anh Thư at the piano, photo 5" },
+    ],
   },
   danTranh: {
     tieuDe: "Vietnamese Zither",
@@ -360,6 +368,11 @@ export const ngheThuat = {
           },
         ],
       },
+    ],
+    // two photos under the videos, one below each
+    anh: [
+      { src: "/images/arts/zither/photo-01.jpg", rong: 6229, cao: 4672, moTa: "Anh Thư performing on the Vietnamese zither, photo 1" },
+      { src: "/images/arts/zither/photo-02.jpg", rong: 6229, cao: 4672, moTa: "Anh Thư performing on the Vietnamese zither, photo 2" },
     ],
   },
 };

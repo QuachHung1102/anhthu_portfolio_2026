@@ -8,6 +8,8 @@ export type AnhDuLieu = {
   cao: number;
   moTa: string;
   giaLap?: boolean;
+  // CSS object-position, for a photo whose crop should hang from somewhere other than the middle
+  viTri?: string;
 };
 
 export type ManhGhep = {

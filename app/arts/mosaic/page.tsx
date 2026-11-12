@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import KhungNgheThuat, { TieuDeNgheThuat } from "@/components/arts/KhungNgheThuat";
-import AnhGoc from "@/components/common/AnhGoc";
 import DoanVan from "@/components/common/DoanVan";
 import DuongKe from "@/components/common/DuongKe";
-import LatManh from "@/components/effects/LatManh";
+import XemAnhLon from "@/components/common/XemAnhLon";
 import { ngheThuat } from "@/data/arts";
 import type { AnhDuLieu } from "@/data/types";
 
@@ -11,17 +10,9 @@ export const metadata: Metadata = { title: "Mosaic" };
 
 type LuoiProps = { anh: AnhDuLieu[]; className: string; coAnh: string };
 
-// a row of photos, uncovered tile by tile from the left
+// a row of photos, uncovered tile by tile from the left. click one for the original, full size
 function LuoiAnh({ anh, className, coAnh }: LuoiProps) {
-  return (
-    <div className={className}>
-      {anh.map((a, i) => (
-        <LatManh key={a.src} thuTu={i}>
-          <AnhGoc anh={a} className={`w-full ${coAnh}`} />
-        </LatManh>
-      ))}
-    </div>
-  );
+  return <XemAnhLon anh={anh} className={className} anhClassName={`w-full ${coAnh}`} nutClassName="block w-full" lat={{}} />;
 }
 
 // one piece from bare tray to finished, cut off the desk, arrows between the steps
@@ -31,9 +22,15 @@ function QuyTrinh({ ten, buoc }: { ten: string; buoc: AnhDuLieu[] }) {
       <ol className="grid grid-cols-2 items-center gap-x-8 gap-y-16 md:flex md:gap-x-0">
         {buoc.map((a, i) => (
           <li key={a.src} className="flex items-center md:flex-1">
-            <LatManh thuTu={i} className="flex-1">
-              <AnhGoc anh={a} className="mx-auto h-160 w-auto max-w-full object-contain lg:h-220" />
-            </LatManh>
+            <XemAnhLon
+              anh={buoc}
+              tu={i}
+              den={i + 1}
+              className="flex-1"
+              lat={{}}
+              nutClassName="block w-full"
+              anhClassName="mx-auto h-160 w-auto max-w-full object-contain lg:h-220"
+            />
             {i < buoc.length - 1 && (
               <span aria-hidden className="type-display-40 hidden px-8 text-arts md:block">
                 →
@@ -47,12 +44,12 @@ function QuyTrinh({ ten, buoc }: { ten: string; buoc: AnhDuLieu[] }) {
   );
 }
 
-// rows of at most four, spread evenly: 7 photos come out as 4 + 3, never 6 + 1
-function hangAnh(anh: AnhDuLieu[]) {
-  const soHang = Math.ceil(anh.length / 4);
-  const moiHang = Math.ceil(anh.length / soHang);
-  const hang: AnhDuLieu[][] = [];
-  for (let i = 0; i < anh.length; i += moiHang) hang.push(anh.slice(i, i + moiHang));
+// rows of at most four, spread evenly: 7 photos come out as 4 + 3, never 6 + 1. [first, end) of each row
+function hangAnh(so: number): [number, number][] {
+  const soHang = Math.ceil(so / 4);
+  const moiHang = Math.ceil(so / soHang);
+  const hang: [number, number][] = [];
+  for (let i = 0; i < so; i += moiHang) hang.push([i, Math.min(i + moiHang, so)]);
   return hang;
 }
 
@@ -97,12 +94,16 @@ export default function TrangMosaic() {
           {xuong.buoi.map((buoi) => (
             <figure key={buoi.ten} className="lg:pl-4">
               <div className="grid gap-10 lg:gap-28">
-                {hangAnh(buoi.anh).map((hang) => (
-                  <div key={hang[0].src} className={`grid gap-10 lg:gap-28 ${COT[hang.length]}`}>
-                    {hang.map((a) => (
-                      <AnhGoc key={a.src} anh={a} className="aspect-[410/279] h-auto w-full" />
-                    ))}
-                  </div>
+                {hangAnh(buoi.anh.length).map(([tu, den]) => (
+                  <XemAnhLon
+                    key={tu}
+                    anh={buoi.anh}
+                    tu={tu}
+                    den={den}
+                    className={`grid gap-10 lg:gap-28 ${COT[den - tu]}`}
+                    anhClassName="aspect-[410/279] h-auto w-full"
+                    nutClassName="block w-full"
+                  />
                 ))}
               </div>
               <figcaption className="type-display-40 mt-20 text-center text-arts lg:mt-36">{buoi.ten}</figcaption>

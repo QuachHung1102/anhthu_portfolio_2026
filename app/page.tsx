@@ -19,8 +19,8 @@ import type { Trang } from "@/data/types";
 // each column title is drawn, not typed, so it needs its own artwork and size
 const chuCot: Partial<Record<Trang, { hinh: typeof chuArt; co: string }>> = {
   academics: { hinh: chuAcademics, co: "h-54 w-343" },
-  arts: { hinh: chuArt, co: "h-52 w-117" },
-  projects: { hinh: chuProject, co: "h-61 w-307" },
+  arts: { hinh: chuArt, co: "h-54 w-153" },
+  projects: { hinh: chuProject, co: "h-61 w-348" },
 };
 
 export default function TrangChu() {

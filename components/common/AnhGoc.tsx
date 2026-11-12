@@ -12,6 +12,7 @@ export default function AnhGoc({ anh, className = "", uuTien }: Props) {
       height={anh.cao}
       alt={anh.moTa}
       draggable={false}
+      style={anh.viTri ? { objectPosition: anh.viTri } : undefined}
       preload={uuTien}
       className={`object-cover ${className}`}
     />

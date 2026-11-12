@@ -36,7 +36,7 @@ export default function TrangDuAn() {
   return (
     <>
       <KhoiMoDau trang="projects">
-        <h1 data-intro="tiles" className="mt-40 md:col-span-6 md:row-start-2 md:mt-32 md:self-end tl:col-span-7 lg:absolute lg:left-71 lg:top-190 lg:mt-0 lg:w-620">
+        <h1 data-intro="tiles" className="mt-40 md:col-span-6 md:row-start-2 md:mt-32 md:self-end tl:col-span-7 lg:absolute lg:left-71 lg:top-190 lg:mt-0 lg:w-640">
           <HinhVe duLieu={tieuDeDuAn} moTa="Projects" className="h-auto w-full" />
         </h1>
         <div data-intro="text" className="mt-16 md:col-span-6 md:row-start-3 tl:col-span-7 lg:absolute lg:left-71 lg:top-380 lg:mt-0 lg:w-600">

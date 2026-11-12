@@ -65,13 +65,6 @@ export const hocThuat = {
           giaTri: "5",
           xem: [bangDiemAp],
           ghiChu: "May 2025"
-        },
-        {
-          x: 486,
-          nhan: "ABRSM Grade 6",
-          giaTri: "137/150",
-          ghiChu: "July 2023",
-          kem: "(Distinction)"
         }
       ],
       [
@@ -111,7 +104,7 @@ export const hocThuat = {
             },
           {"src":"/images/academics/abs-04.jpg","rong":1190,"cao":1683,"moTa":"ASEEDER Business Simulation Prototype Award certificate"}
           ],
-          "anhThi": [{"src":"/images/academics/contest/abs-01.jpg","rong":4096,"cao":3072,"moTa":"Anh Thư's team on stage with the ABS Gold Award"},{"src":"/images/academics/contest/abs-02.jpg","rong":4608,"cao":3075,"moTa":"Anh Thư presenting at ASEEDER Business Simulation"}],
+          "anhThi": [{"src":"/images/academics/contest/abs-01.jpg","rong":4096,"cao":3072,"moTa":"Anh Thư's team on stage with the ABS Gold Award"},{"src":"/images/academics/contest/abs-02.jpg","rong":4608,"cao":3075,"moTa":"Anh Thư presenting at ASEEDER Business Simulation"},{"src":"/images/academics/contest/abs-03.jpg","rong":4608,"cao":3075,"moTa":"Anh Thư and her team at ASEEDER Business Simulation"}],
           "ten": [
             {
               "chu": "**ASEEDER Business Simulation (ABS) 2024-2025, Vietnam Regional Round, October 2024**"
@@ -157,7 +150,7 @@ export const hocThuat = {
               "moTa": "WYEF 2025 Marketing Visual Impact Award certificate"
             }
           ],
-          "anhThi": [{"src":"/images/academics/contest/wyef-01.jpg","rong":4000,"cao":2666,"moTa":"Anh Thư's team presenting at WYEF 2025 in Shanghai"},{"src":"/images/academics/contest/wyef-02.jpg","rong":4000,"cao":2666,"moTa":"Anh Thư's team at work during WYEF 2025"}],
+          "anhThi": [{"src":"/images/academics/contest/wyef-01.jpg","rong":4000,"cao":2666,"moTa":"Anh Thư's team presenting at WYEF 2025 in Shanghai"},{"src":"/images/academics/contest/wyef-02.jpg","rong":4000,"cao":2666,"moTa":"Anh Thư's team at work during WYEF 2025"},{"src":"/images/academics/contest/wyef-03.jpg","rong":4000,"cao":2666,"moTa":"WYEF 2025 in Shanghai, photo 3"},{"src":"/images/academics/contest/wyef-04.jpg","rong":2560,"cao":1920,"moTa":"WYEF 2025 in Shanghai, photo 4"},{"src":"/images/academics/contest/wyef-05.jpg","rong":2188,"cao":1641,"moTa":"WYEF 2025 in Shanghai, photo 5"},{"src":"/images/academics/contest/wyef-06.jpg","rong":4000,"cao":2666,"moTa":"WYEF 2025 in Shanghai, photo 6"},{"src":"/images/academics/contest/wyef-07.jpg","rong":3864,"cao":2575,"moTa":"WYEF 2025 in Shanghai, photo 7"}],
           "ten": [
             {
               "chu": "**World Youth Economic Forum (WYEF) 2025, Shanghai, China, August 2025**"

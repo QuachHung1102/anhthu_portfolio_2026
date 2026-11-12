@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import KhungNgheThuat, { TieuDeNgheThuat } from "@/components/arts/KhungNgheThuat";
 import TietMuc from "@/components/arts/TietMuc";
 import DuongKe from "@/components/common/DuongKe";
+import XemAnhLon from "@/components/common/XemAnhLon";
 import { ngheThuat } from "@/data/arts";
 
 export const metadata: Metadata = { title: "Vietnamese Zither" };
 
 export default function TrangDanTranh() {
-  const { tieuDe, tietMuc } = ngheThuat.danTranh;
+  const { tieuDe, tietMuc, anh } = ngheThuat.danTranh;
   return (
     <KhungNgheThuat>
       <section className="pt-40 lg:pl-4 lg:pt-53">
@@ -16,6 +17,14 @@ export default function TrangDanTranh() {
         <TietMuc
           tietMuc={tietMuc}
           className="mt-24 lg:mt-40 lg:grid-cols-2 lg:gap-19"
+        />
+        {/* same two columns as the videos: photo 1 under the first, photo 2 under the second */}
+        <XemAnhLon
+          anh={anh}
+          className="mt-24 grid gap-16 md:grid-cols-2 lg:mt-32 lg:gap-x-19"
+          anhClassName="aspect-[4/3] h-auto w-full"
+          nutClassName="block w-full"
+          lat={{}}
         />
         <DuongKe trang="arts" className="mt-40 lg:mt-76" />
       </section>

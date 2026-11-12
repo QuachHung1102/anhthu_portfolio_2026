@@ -37,8 +37,8 @@ export default function MoDauNgheThuat() {
   const ban: Record<string, ReactNode> = {
     "/arts": phan(
       "/arts",
-      <h1 data-intro="tiles" className="mt-24 md:col-span-6 md:row-start-2 md:mt-32 tl:col-span-5 lg:absolute lg:left-70 lg:top-190 lg:mt-0 lg:w-460">
-        <HinhVe duLieu={tieuDeNgheThuat} moTa="Art" className="h-auto w-full max-w-300 tl:max-w-none" />
+      <h1 data-intro="tiles" className="mt-24 md:col-span-6 md:row-start-2 md:mt-32 tl:col-span-5 lg:absolute lg:left-70 lg:top-190 lg:mt-0 lg:w-594">
+        <HinhVe duLieu={tieuDeNgheThuat} moTa="Arts" className="h-auto w-full max-w-387 tl:max-w-none" />
       </h1>,
       "lg:top-418",
     ),

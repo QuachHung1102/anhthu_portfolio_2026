@@ -82,7 +82,7 @@ export const duAn = {
     tieuDe: "INTERNSHIP EXPERIENCE",
     // the Vietnamese original first, then the notarized English copy; they slide
     anh: [
-      { src: "/images/projects/batik.png", rong: 1200, cao: 848, moTa: "BATIK International internship certificate, Vietnamese original" },
+      { src: "/images/projects/batik-vi.jpg", rong: 3510, cao: 2482, moTa: "BATIK International internship certificate, Vietnamese original" },
       { src: "/images/projects/batik-en.jpg", rong: 3509, cao: 2481, moTa: "BATIK International internship certificate, notarized English translation" },
     ],
     ten: "Association BATIK International (Vietnam Office)",
@@ -129,15 +129,16 @@ export const duAn = {
         lienKet: "https://www.facebook.com/econfarmers",
         vaiTro: "Co-Founder & Project Leader",
         anh: {
-          // the Doc asked for the group photo in white shirts here
-          src: "/images/projects/activities/econfarmers/05.jpg",
+          // the Nov 12 Doc: the "00 ảnh đại diện" photo
+          src: "/images/projects/activities/econfarmers/cover.jpg",
           rong: 2048,
-          cao: 2048,
-          moTa: "EconFarmers team in white shirts at the Ban Ten volunteer camp",
+          cao: 1588,
+          moTa: "EconFarmers team holding the EconFarmers banner at a trade fair",
         },
         anhNho: anhNho("econfarmers", "EconFarmers", [
-          [3750, 1969], [2560, 1920], [4032, 2268], [2048, 2048], [2048, 2048], [2048, 1588], [6000, 4000],
-          [2048, 2048], [3000, 4000], [3000, 4000], [6000, 4000], [3362, 1891], [1276, 956], [6000, 4000],
+          [2048, 2048], [2048, 2048], [3000, 4000], [3000, 4000], [2560, 1920], [2772, 3696], [3750, 1969],
+          [2048, 2048], [1638, 2048], [1660, 2214], [2560, 1920], [2560, 1441], [4032, 2268], [4032, 2268],
+          [2731, 4096], [4032, 2268], [6000, 4000], [6000, 4000],
         ]),
         tongQuan:
           "A student-led social enterprise initiative aimed at promoting sustainable agricultural products from Vietnam’s highland communities while providing youth with business and venture management knowledge.",
@@ -176,12 +177,17 @@ export const duAn = {
         ten: "Hanoi Amsterdam Entrepreneurz Club (HAEC)",
         vaiTro: "Head of Finance",
         anh: {
-          src: "/images/projects/haec.png",
-          rong: 1212,
-          cao: 810,
-          moTa: "Hanoi Amsterdam Entrepreneurz Club members",
+          // the Nov 12 Doc: "Head of Finance" poster. portrait, so the crop hangs from the top to keep the title in
+          src: "/images/projects/activities/haec/cover.jpg",
+          rong: 526,
+          cao: 765,
+          moTa: "Anh Thư, Head of Finance of the Hanoi Amsterdam Entrepreneurz Club",
+          viTri: "50% 6%",
         },
-        anhNho: anhNho("haec", "HAEC", [[810, 540], [526, 765], [590, 394], [584, 417], [2048, 1152]]),
+        anhNho: anhNho("haec", "HAEC", [
+          [1080, 720], [810, 540], [1080, 720], [590, 394], [4096, 4096], [540, 720], [2048, 1152],
+          [1080, 720], [1080, 720], [1080, 720], [1080, 720],
+        ]),
         tongQuan:
           "An entrepreneurship club at Hanoi-Amsterdam High School, dedicated to fostering business mindset, financial literacy, and startup initiatives among youth.",
         quaTrinh: [
@@ -204,7 +210,8 @@ export const duAn = {
           moTa: "Future Impact Leader Camp in Ban Ten, Thai Nguyen",
         },
         anhNho: anhNho("future-impact-leader-camp", "Future Impact Leader Camp", [
-          [1918, 2560], [6000, 4000], [2560, 1816], [6000, 4000], [1276, 956], [3362, 1891], [6000, 4000],
+          [2560, 1816], [1918, 2560], [6000, 4000], [4096, 2731], [4096, 2731], [6000, 4000], [1276, 956],
+          [6000, 4000], [5000, 3333], [4032, 2268], [6000, 4000], [3362, 1891], [6000, 4000], [6000, 4000],
         ]),
         tongQuan:
           "A community service camp focused on empowering local youth and providing essential support for highland families in Ban Ten.",

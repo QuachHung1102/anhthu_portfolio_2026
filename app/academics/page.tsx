@@ -121,7 +121,8 @@ export default function TrangHocThuat() {
                     {/* proof she was there: 1-2 photos from the contest (ABRSM has none) */}
                     {"anhThi" in giai ? (
                       <LatManh thuTu={thuTu}>
-                        <XemAnhLon anh={giai.anhThi} className="grid grid-cols-2 gap-8" anhClassName="aspect-[3/2] h-auto w-full" />
+                        {/* 2 photos side by side, 3 or more three to a row */}
+                        <XemAnhLon anh={giai.anhThi} className={`grid gap-8 ${giai.anhThi.length > 2 ? "grid-cols-3" : "grid-cols-2"}`} anhClassName="aspect-[3/2] h-auto w-full" />
                       </LatManh>
                     ) : (
                       <div />
